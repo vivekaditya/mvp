@@ -20,8 +20,7 @@
 
   ?>
   <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container"> 
-          <a class="navbar-brand" >New Users?</a>
+      <div class="container">  
           <form class="navbar-form navbar-right" action="signout.php">
             <button type="submit" class="btn btn-danger">Sign Out</button>
           </form> 

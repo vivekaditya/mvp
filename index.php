@@ -11,8 +11,9 @@
     <title>Hare Krishna</title>
     <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="sweetalert.css">
     <script src="jquery.min.js"></script>
-
+    <script src="sweetalert-dev.js"></script>
   </head>
 
   <body>
@@ -70,7 +71,7 @@
             window.location="home.php?username="+a ;
          }         
          else{
-            alert(msg);
+          sweetAlert("Oops...",msg, "error");            
          }
       });
       return false;
