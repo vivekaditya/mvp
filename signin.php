@@ -11,24 +11,9 @@
     <title>Hare Krishna</title>
     <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
-    <script src="jquery.min.js"></script>
-
   </head>
 
   <body>
-     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container"> 
-          <a class="navbar-brand" >New Users?</a>
-          <form class="navbar-form navbar-left" action="signup.php">
-            <button type="submit" class="btn btn-primary">Sign up</button>
-          </form>
-          <form class="navbar-form navbar-right" onsubmit="return validateForm()" action="signin.php" method="POST">
-            <input type="text" id="username"  name="username" placeholder="Username" class="form-control">
-            <input type="password" id="password" name="password" placeholder="Password" class="form-control">
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-      </div>
-    </nav>
     <div class="jumbotron">
       <div class="container text-center">
         <h1>Hare Krishna!</h1>
@@ -49,24 +34,6 @@
     <hr>
     <footer>
         <p class="text-center">&copy; 2015 Transenigma.</p>
-    </footer>
-     <script type="text/javascript">
-    function validateForm () {
-      var a = $("#username").val();
-      var b = $("#password").val();
-      $.ajax({
-        method: "POST",
-        url: "check.php",
-        data: { username:a,password:b }
-      }).done(function( msg ) {         
-         if(msg.trim().length==0){
-            window.location="signin.php" ;
-         }         
-         else{
-            alert(msg);
-         }
-      });
-      return false;
-    }</script>
+    </footer> 
   </body>
 </html>
