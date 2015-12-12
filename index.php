@@ -16,13 +16,20 @@
   </head>
 
   <body>
+  <?php 
+    session_start();
+    if(isset($_SESSION['username'])){
+      header("Location:home.php?username=".$_SESSION['username']);
+    }
+
+  ?>
      <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container"> 
           <a class="navbar-brand" >New Users?</a>
           <form class="navbar-form navbar-left" action="signup.php">
             <button type="submit" class="btn btn-primary">Sign up</button>
           </form>
-          <form class="navbar-form navbar-right" onsubmit="return validateForm()" action="signin.php" method="POST">
+          <form class="navbar-form navbar-right" onsubmit="return validateForm()" action="home.php" method="POST">
             <input type="text" id="username"  name="username" placeholder="Username" class="form-control">
             <input type="password" id="password" name="password" placeholder="Password" class="form-control">
             <button type="submit" class="btn btn-success">Sign in</button>
@@ -60,7 +67,7 @@
         data: { username:a,password:b }
       }).done(function( msg ) {         
          if(msg.trim().length==0){
-            window.location="signin.php" ;
+            window.location="home.php?username="+a ;
          }         
          else{
             alert(msg);

@@ -43,7 +43,7 @@
               url: "insert.php",
               data: { username:a ,password:b}
             }).done(function( msg ) {
-              window.location="insert.php" ;
+              window.location="index.php" ;
             });        
           }
           else{

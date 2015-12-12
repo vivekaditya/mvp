@@ -16,8 +16,8 @@ if ($result->num_rows==0) {
     echo "No user with such name";
 }
 else {
-	while ($row = $result->fetch_assoc()) {
-		if ($_POST['password']!=$row['password']) {
+	while ($z = $result->fetch_assoc()) {
+		if ($_POST['password']!=$z['password']) {
 			echo "Password incorrect";		
 		}   
     }

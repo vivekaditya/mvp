@@ -14,9 +14,22 @@
   </head>
 
   <body>
+  <?php 
+  session_start();
+  $_SESSION['username'] = $_GET['username'];
+
+  ?>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container"> 
+          <a class="navbar-brand" >New Users?</a>
+          <form class="navbar-form navbar-right" action="signout.php">
+            <button type="submit" class="btn btn-danger">Sign Out</button>
+          </form> 
+      </div>
+    </nav>
     <div class="jumbotron">
       <div class="container text-center">
-        <h1>Hare Krishna!</h1>
+        <h1>Hare Krishna! <?php echo $_GET['username'];?></h1>
       </div>
     </div> 
      <div class="container">
