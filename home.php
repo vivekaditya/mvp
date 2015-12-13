@@ -16,7 +16,10 @@
   <body>
   <?php 
   session_start();
-  $_SESSION['username'] = $_GET['username'];
+  if(!isset($_POST['username'])){
+   header("Location:index.php");    
+  }
+  $_SESSION['username'] = $_POST['username'];
 
   ?>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -28,7 +31,7 @@
     </nav>
     <div class="jumbotron">
       <div class="container text-center">
-        <h1>Hare Krishna! <?php echo $_GET['username'];?></h1>
+        <h1>Hare Krishna! <?php echo $_POST['username'];?></h1>
       </div>
     </div> 
      <div class="container">

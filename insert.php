@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 $sql = "INSERT INTO usertable(username, password) VALUES ('".$_POST['username']."','".$_POST['password']."')";
 
 if ($conn->query($sql) === TRUE) {
-   echo "Yes";
+   header("Location:index.php?status=Yes");
 }  
 
 $conn->close();

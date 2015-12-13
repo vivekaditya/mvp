@@ -22,7 +22,9 @@
     if(isset($_SESSION['username'])){
       header("Location:home.php?username=".$_SESSION['username']);
     }
-
+    if(isset($_GET['status'])){
+      echo "<script>sweetAlert('Hari Bol!','Created successfully', 'success');</script>";
+    } 
   ?>
      <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container"> 
@@ -30,7 +32,7 @@
           <form class="navbar-form navbar-left" action="signup.php">
             <button type="submit" class="btn btn-primary">Sign up</button>
           </form>
-          <form class="navbar-form navbar-right" onsubmit="return validateForm()" action="home.php" method="POST">
+          <form class="navbar-form navbar-right" onsubmit="return validateForm(this)" action="home.php" method="POST">
             <input type="text" id="username"  name="username" placeholder="Username" class="form-control">
             <input type="password" id="password" name="password" placeholder="Password" class="form-control">
             <button type="submit" class="btn btn-success">Sign in</button>
@@ -59,7 +61,7 @@
         <p class="text-center">&copy; 2015 Transenigma.</p>
     </footer>
      <script type="text/javascript">
-    function validateForm () {
+    function validateForm (form) {
       var a = $("#username").val();
       var b = $("#password").val();
       $.ajax({
@@ -68,7 +70,7 @@
         data: { username:a,password:b }
       }).done(function( msg ) {         
          if(msg.trim().length==0){
-            window.location="home.php?username="+a ;
+             form.submit();
          }         
          else{
           sweetAlert("Oops...",msg, "error");            
